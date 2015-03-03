@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.modoop.admin.service.dao.AdminDao">
+
+    <!-- 定义全局查询的SQL变量语句 -->
+    <sql id="searchCondition">
+        <where>
+            <if test="name != null">name like '%${name}%'</if>
+        </where>
+    </sql>
+
+    <select id="search" parameterType="map" resultMap="adminMap">
+        SELECT
+        id, name, password, phone, mobile, email, state, true_name, create_time
+        FROM admin
+        <include refid="searchCondition"/>
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+    <select id="count" parameterType="map" resultType="long">
+        SELECT count(1)
+        FROM admin
+        <include refid="searchCondition"/>
+    </select>
+
+    <select id="find" parameterType="long" resultMap="adminMap">
+        SELECT a.id, a.name, a.password, a.phone, a.mobile, a.email, a.state, a.description, a.true_name, a.create_time, a.version,
+        r.id AS role_id, r.name AS role_name, r.permissions AS role_permissions, r.description AS role_description
+        FROM admin a
+        LEFT JOIN admin_x_role x ON a.id = x.admin_id LEFT JOIN role r ON x.role_id = r.id
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="findByName" parameterType="string" resultMap="adminMap">
+        SELECT a.id, a.name, a.password, a.phone, a.mobile, a.email, a.state, a.description, a.true_name, a.create_time, a.version,
+        r.id AS role_id, r.name AS role_name, r.permissions AS role_permissions, r.description AS role_description
+        FROM admin a
+        LEFT JOIN admin_x_role x on a.id = x.admin_id LEFT JOIN role r ON x.role_id = r.id
+        WHERE a.name = #{name}
+    </select>
+
+    <insert id="create" parameterType="admin" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO admin (name, password, true_name, phone, mobile,
+        email, state, description, create_time, version) VALUE (#{name}, #{password}, #{trueName}, #{phone}, #{mobile},
+        #{email}, #{state}, #{description}, #{createTime}, 0)
+    </insert>
+
+    <insert id="createAdminXRole" parameterType="admin">
+        INSERT INTO admin_x_role (admin_id, role_id) VALUES (#{id}, #{role.id})
+    </insert>
+
+    <update id="update" parameterType="admin">
+        UPDATE admin
+        <trim prefix="set">
+            <if test="trueName != null">true_name = #{trueName}, </if>
+            <if test="password != null and password != ''">password = #{password}, </if>
+            <if test="phone != null">phone = #{phone}, </if>
+            <if test="mobile != null">mobile = #{mobile}, </if>
+            <if test="email != null">email = #{email}, </if>
+            <if test="state != null">state = #{state}, </if>
+            <if test="description != null">description = #{description}, </if>
+        </trim>
+        version = version + 1 WHERE id = #{id} AND version = #{version}
+    </update>
+
+    <update id="updateAdminXRole" parameterType="admin">
+        UPDATE admin_x_role SET admin_id = #{id}, role_id = #{role.id} WHERE admin_id = #{id}
+    </update>
+
+
+    <delete id="delete" parameterType="long">
+        DELETE FROM admin WHERE id = #{id}
+    </delete>
+
+    <!-- 结果集mapper -->
+    <resultMap id="adminMap" type="admin">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+        <result property="trueName" column="true_name"/>
+        <result property="phone" column="phone"/>
+        <result property="mobile" column="mobile"/>
+        <result property="email" column="email"/>
+        <result property="state" column="state"/>
+        <result property="description" column="description"/>
+        <result property="createTime" column="create_time"/>
+        <result property="version" column="version"/>
+        <association property="role" javaType="Role">
+            <result property="id" column="role_id"/>
+            <result property="name" column="role_name"/>
+            <result property="permissions" column="role_permissions"/>
+            <result property="description" column="role_description"/>
+        </association >
+    </resultMap>
+
+</mapper> 

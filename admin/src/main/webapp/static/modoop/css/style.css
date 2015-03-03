@@ -1,0 +1,218 @@
+html,
+body {
+    font-family: tahoma, verdana, arial, sans-serif;
+    color: #333333;
+    background-color: #FFFFFF;
+    height: 100%;
+}
+
+.container-fixed {
+    margin: 0 auto;
+    max-width: 1024px;
+    min-width: 1024px;
+    width: 1024px;
+}
+
+/* Bootstrap override */
+.form-head {
+    font-weight: bold;
+    text-transform: uppercase;
+    /*color: #DD4B39;*/
+}
+
+.form-horizontal .form-foot {
+    /*background-color: #f5f5f5;*/
+    border-top: 1px solid #E3E3E3;
+    text-align: right;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/*** data table ***/
+table.data {
+    table-layout: fixed;
+    width: 100%;
+}
+
+table.data td {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* for IE */
+    -o-text-overflow: ellipsis; /* for Opera */
+    -khtml-text-overflow: ellipsis; /* for Konqueror Safari */
+    -moz-text-overflow: ellipsis; /* for Firefox,mozilla */
+    -webkit-text-overflow: ellipsis; /* for Safari,Swift*/
+    vertical-align: bottom;
+}
+
+table.data {
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+}
+
+table.data th:first-child {
+    width: 40px;
+}
+
+table.data td:first-child {
+    text-align: center;
+}
+
+/* New componenet */
+
+/* Side notes for calling out things
+-------------------------------------------------- */
+.callout {
+    margin: 20px 0;
+    padding: 15px 30px 15px 15px;
+    border-left: 5px solid #eee;
+}
+
+.callout h4 {
+    margin-top: 0;
+}
+
+.callout p:last-child {
+    margin-bottom: 0;
+}
+
+.callout code,
+.callout .highlight {
+    background-color: #fff;
+}
+
+/* Themes for different contexts */
+.callout-danger {
+    background-color: #fcf2f2;
+    border-color: #dFb5b4;
+}
+
+.callout-warning {
+    background-color: #fefbed;
+    border-color: #f1e7bc;
+}
+
+.callout-info {
+    background-color: #f0f7fd;
+    border-color: #d0e3f0;
+}
+
+/* divs */
+#content-login {
+    width: auto;
+    max-width: 330px;
+    margin-top: 50px;
+    padding: 20px 30px;
+    border: 2px solid #E3E3E3;
+    background-color: #F9F9F9;
+}
+
+.content {
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+#main-content {
+    padding-top: 50px;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.alert-block {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+.alert-block > p,
+.alert-block > ul {
+    margin-bottom: 0;
+}
+.alert-block p + p {
+    margin-top: 5px;
+}
+
+.alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+}
+
+.alert-content {
+    line-height: 30px;
+}
+
+.alert-footing {
+    padding-top: 10px;
+}
+
+label.error {
+    font-weight: normal;
+    font-size: 12px;
+    margin-top: 7px;
+    color: #CC0000;
+}
+
+input.error {
+    border: 1px solid #CC0000;
+}
+
+
+/*** popover ***/
+.popover {
+    width: 270px;
+    text-align: left;
+    font-size: 12px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+}
+
+.popover-title {
+    font-weight: bold;
+    display: none;
+}
+
+.form-horizontal .popover + .help-block {
+    margin-top: 10px;
+}
+
+
+
+.wh {
+    color: #FFFFFF;
+}
+
+.blue {
+    color: #0000CC;
+}
+
+.green {
+    color: #00AA00;
+}
+
+.red {
+    color: #CC0000;
+}
+
+.orange {
+    color: #CC9900;
+}
+
+.black {
+    color: #000000;
+}
+
+.gray {
+    color: #CCCCCC;
+}
+
+.darkgray {
+    color: #999999;
+}
+
+.lightblack {
+    color: #666666;
+}
+
+
