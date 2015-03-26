@@ -23,7 +23,7 @@
     {
         try
         {
-            if (str.indexOf("%") >= 0)
+            if (str.contains("%"))
             {
                 return URLDecoder.decode(str, DEFAULT_CHARSET);
             }
@@ -48,19 +48,7 @@
                 textColor = "green";
                 break;
             case 1:
-                textColor = "orange";
-                break;
-            case 2:
-                textColor = "red";
-                break;
-            case 3:
                 textColor = "darkgray";
-                break;
-            case 4:
-                textColor = "black";
-                break;
-            case 5:
-                textColor = "gray";
                 break;
         }
 

@@ -1,16 +1,20 @@
-html,
+html
+{
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     font-family: tahoma, verdana, arial, sans-serif;
     color: #333333;
     background-color: #FFFFFF;
-    height: 100%;
 }
 
 .container-fixed {
     margin: 0 auto;
-    max-width: 1024px;
+    max-width: 1280px;
     min-width: 1024px;
-    width: 1024px;
+    width: 1280px;
 }
 
 /* Bootstrap override */
@@ -101,7 +105,7 @@ table.data td:first-child {
 #content-login {
     width: auto;
     max-width: 330px;
-    margin-top: 50px;
+    margin-top: 60px;
     padding: 20px 30px;
     border: 2px solid #E3E3E3;
     background-color: #F9F9F9;
@@ -113,7 +117,7 @@ table.data td:first-child {
 }
 
 #main-content {
-    padding-top: 50px;
+    /*padding-bottom: 10px;*/
 }
 
 .nopadding {
@@ -157,6 +161,12 @@ input.error {
     border: 1px solid #CC0000;
 }
 
+
+/*** Elements ***/
+textarea
+{
+    resize: none;
+}
 
 /*** popover ***/
 .popover {
@@ -215,4 +225,43 @@ input.error {
     color: #666666;
 }
 
+/* Sticky footer styles
+-------------------------------------------------- */
+body
+{
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+.footer
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container
+{
+    padding: 0 15px 0;
+}
+.container .text-muted
+{
+    margin: 20px 0;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+code
+{
+    font-size: 80%;
+}
 

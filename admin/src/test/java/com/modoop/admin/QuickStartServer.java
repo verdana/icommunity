@@ -1,4 +1,4 @@
-package com.modoop.admin.embedded;
+package com.modoop.admin;
 
 import com.modoop.core.test.JettyFactory;
 import org.eclipse.jetty.server.Server;

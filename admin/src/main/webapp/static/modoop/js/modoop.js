@@ -1,4 +1,4 @@
-
+// basic methods.
 $(document).ready(function()
 {
     init_selete_style();
@@ -11,15 +11,15 @@ redirect = function(url)
     window.location.href = encodeURI(url);
 };
 
-back = function ()
+back = function()
 {
     window.history.back();
 };
 
-home = function ()
+home = function()
 {
     window.location.href = "/";
-}
+};
 
 confirm_submit = function (form, uri)
 {

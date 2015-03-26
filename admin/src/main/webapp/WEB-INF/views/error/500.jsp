@@ -1,22 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" isErrorPage="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="org.slf4j.Logger,org.slf4j.LoggerFactory" %>
-<%@ page import="javax.validation.ConstraintViolationException" %>
 <%@ include file="../inc/header.inc.jsp" %>
 <%
     //设置返回码200，避免浏览器自带的错误页面
     response.setStatus(200);
     //记录日志
     Logger logger = LoggerFactory.getLogger("500.jsp");
-    String message;
-    if (exception instanceof ConstraintViolationException)
-    {
-        message = "录入数据验证错误，";
-    }
-    else
-    {
-        message = exception.getMessage();
-    }
+    String message = exception.getMessage();
     logger.error(message);
 //    logger.error(message, exception);
 %>

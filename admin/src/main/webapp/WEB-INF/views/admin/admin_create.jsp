@@ -1,6 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ include file="../inc/header.inc.jsp" %>
+<%@ include file="../inc/header.inc.jsp"%>
 
 <div id="main-content" class="container">
 

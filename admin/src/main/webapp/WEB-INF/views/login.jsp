@@ -13,7 +13,6 @@
     <link type="image/x-icon" href="${ctx}/static/avalon/img/favicon.ico" rel="shortcut icon">
     <link href="${ctx}/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="${ctx}/static/bootstrap/css/todc-bootstrap.min.css" rel="stylesheet"/>
-    <link href="${ctx}/static/modoop/css/sticky.css" rel="stylesheet"/>
     <link href="${ctx}/static/modoop/css/style.css" rel="stylesheet"/>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -23,12 +22,10 @@
 
 <body>
 
-<div id="wrap">
-
-    <div class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
         </div>
-    </div>
+    </nav>
 
     <div id="content-login" class="container">
         <form class="form-signin" action="${ctx}/login" method="post">
@@ -74,25 +71,22 @@
         </form>
     </div>
 
-</div>
+    <footer class="footer">
+        <div class="container">
+            <p class="left pull-left text-muted">&copy; 2015 Modoop</p>
+        </div>
+    </footer>
 
-<div id="footer">
-    <div class="container">
-        <p class="left pull-left text-muted">&copy; 2013 Modoop</p>
-    </div>
-</div>
-
-<script type="text/javascript" src="${ctx}/static/jquery/js/jquery.min.js"></script>
-<script type="text/javascript" src="${ctx}/static/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${ctx}/static/modoop/js/modoop.js"></script>
-
-<script>
-    $(function()
-    {
-        //聚焦第一个输入框
-        $("#username").focus();
-    });
-</script>
+    <script type="text/javascript" src="${ctx}/static/jquery/js/jquery.min.js"></script>
+    <script type="text/javascript" src="${ctx}/static/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${ctx}/static/modoop/js/modoop.js"></script>
+    <script>
+        $(function()
+        {
+            //聚焦第一个输入框
+            $("#username").focus();
+        });
+    </script>
 
 </body>
 </html>
