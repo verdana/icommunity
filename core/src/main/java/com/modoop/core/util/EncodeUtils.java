@@ -103,7 +103,7 @@ public class EncodeUtils
      */
     public static String escapeXml(String xml)
     {
-        return StringEscapeUtils.escapeXml(xml);
+        return StringEscapeUtils.escapeXml11(xml);
     }
 
     /**

@@ -5,11 +5,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.conn.PoolingClientConnectionManager;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.slf4j.Logger;
@@ -45,7 +45,7 @@ public class RemoteContentServlet extends HttpServlet
 
     private static Logger logger = LoggerFactory.getLogger(RemoteContentServlet.class);
 
-    private HttpClient httpClient = null;
+    private CloseableHttpClient httpClient = null;
 
     /**
      * 创建多线程安全的HttpClient实例.
@@ -54,13 +54,12 @@ public class RemoteContentServlet extends HttpServlet
     public void init() throws ServletException
     {
         //Set connection pool
-        PoolingClientConnectionManager cm = new PoolingClientConnectionManager();
+        PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
         cm.setMaxTotal(CONNECTION_POOL_SIZE);
-        httpClient = new DefaultHttpClient(cm);
 
         //set timeout
-        HttpParams httpParams = httpClient.getParams();
-        HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT_SECONDS * 1000);
+        RequestConfig config = RequestConfig.custom().setSocketTimeout(TIMEOUT_SECONDS * 1000).build();
+        httpClient = HttpClients.custom().setConnectionManager(cm).setDefaultRequestConfig(config).build();
     }
 
     /**
@@ -71,7 +70,14 @@ public class RemoteContentServlet extends HttpServlet
     {
         if (httpClient != null)
         {
-            httpClient.getConnectionManager().shutdown();
+            try
+            {
+                httpClient.close();
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
         }
     }
 

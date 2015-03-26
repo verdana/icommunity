@@ -5,12 +5,16 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.type.CollectionType;
+import com.fasterxml.jackson.databind.type.MapType;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Map;
 
 /**
  * @author Genkyo Lee
@@ -132,11 +136,28 @@ public class JsonMapper
 
     /**
      * 构造泛型的Type如List<MyBean>，则调用constructParametricType(ArrayList.class,MyBean.class)
-     * Map<String,MyBean>则调用(HashMap.class,String.class, MyBean.class)
+     * Map<String,MyBean>则调用(HashMap.class, String.class, MyBean.class)
      */
+    @Deprecated
     public JavaType constructParametricType(Class<?> parametrized, Class<?>... parameterClasses)
     {
         return mapper.getTypeFactory().constructParametricType(parametrized, parameterClasses);
+    }
+
+    /**
+     * 构造泛型的Type如List<MyBean>，则调用constructParametricType(ArrayList.class,MyBean.class)
+     */
+    public CollectionType constructCollectionType(Class<? extends Collection> collectClass, Class<?> elementClass)
+    {
+        return mapper.getTypeFactory().constructCollectionType(collectClass, elementClass);
+    }
+
+    /**
+     * 构造泛型的Type如Map<String,MyBean>则调用(HashMap.class, String.class, MyBean.class)
+     */
+    public MapType constructCollectionType(Class<? extends Map> mapClass, Class<?> keyClass, Class<?> valueClass)
+    {
+        return mapper.getTypeFactory().constructMapType(mapClass, keyClass, valueClass);
     }
 
     /**

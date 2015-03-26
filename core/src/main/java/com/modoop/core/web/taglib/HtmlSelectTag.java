@@ -135,7 +135,7 @@ public class HtmlSelectTag extends HtmlTag
         //add options
         if (this.options != null && this.options.length > 0)
         {
-            for (int i = 0; i < options.length - 1; i++)
+            for (int i = 0; i < options.length; i++)
             {
                 String option = options[i];
                 html.append("    ");
