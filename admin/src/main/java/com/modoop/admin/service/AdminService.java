@@ -71,7 +71,6 @@ public class AdminService extends AbstractService
         admin.setPassword(BCrypt.hashpw(admin.getPassword(), BCrypt.gensalt()));
         admin.setCreateTime(new Date());
         adminDao.create(admin);
-        adminDao.createAdminXRole(admin);
     }
 
     @Transactional
@@ -92,7 +91,6 @@ public class AdminService extends AbstractService
         {
             throw new EntityAlreadyChangedException(Admin.KEY, admin.getName());
         }
-        adminDao.updateAdminXRole(admin);
         shiroDbRealm.clearCachedAuthorizationInfo(admin.getName());
         return admin;
     }

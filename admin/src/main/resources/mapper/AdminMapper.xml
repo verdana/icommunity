@@ -43,7 +43,9 @@
     <insert id="create" parameterType="admin" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO admin (name, password, true_name, phone, mobile,
         email, state, description, create_time, version) VALUE (#{name}, #{password}, #{trueName}, #{phone}, #{mobile},
-        #{email}, #{state}, #{description}, #{createTime}, 0)
+        #{email}, #{state}, #{description}, #{createTime}, 0);
+        set @admin_id := (select LAST_INSERT_ID());
+        INSERT INTO admin_x_role (admin_id, role_id) VALUES (@admin_id, #{role.id})
     </insert>
 
     <insert id="createAdminXRole" parameterType="admin">
@@ -54,14 +56,15 @@
         UPDATE admin
         <trim prefix="set">
             <if test="trueName != null">true_name = #{trueName}, </if>
-            <if test="password != null and password != ''">password = #{password}, </if>
+            <if test="password != null">password = #{password}, </if>
             <if test="phone != null">phone = #{phone}, </if>
             <if test="mobile != null">mobile = #{mobile}, </if>
             <if test="email != null">email = #{email}, </if>
             <if test="state != null">state = #{state}, </if>
             <if test="description != null">description = #{description}, </if>
         </trim>
-        version = version + 1 WHERE id = #{id} AND version = #{version}
+        version = version + 1 WHERE id = #{id} AND version = #{version};
+        UPDATE admin_x_role SET admin_id = #{id}, role_id = #{role.id} WHERE admin_id = #{id}
     </update>
 
     <update id="updateAdminXRole" parameterType="admin">
@@ -70,6 +73,7 @@
 
 
     <delete id="delete" parameterType="long">
+        DELETE FROM admin_x_role WHERE admin_id = #{id};
         DELETE FROM admin WHERE id = #{id}
     </delete>
 
