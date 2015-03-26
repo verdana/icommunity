@@ -104,7 +104,7 @@ public class HtmlPaginationTag<T> extends HtmlTag
         String queryString = getQueryString(req);
 
         // Begin
-        if (page.hasPreviousPage())
+        if (page.hasPrevious())
         {
             html.append("   <li><a href=\"?").append(queryString).append("1").append("\">").append("&laquo;").append("</a></li>\n");
             html.append("   <li><a href=\"?").append(queryString).append(current - 1).append("\">").append("&lsaquo;").append("</a></li>\n");
@@ -129,7 +129,7 @@ public class HtmlPaginationTag<T> extends HtmlTag
         }
 
         // End
-        if (page.hasNextPage())
+        if (page.hasNext())
         {
             html.append("   <li><a href=\"?").append(queryString).append(current + 1).append("\">").append("&rsaquo;").append("</a></li>\n");
             html.append("   <li><a href=\"?").append(queryString).append(page.getTotalPages()).append("\">").append("&raquo;").append("</a></li>\n");
