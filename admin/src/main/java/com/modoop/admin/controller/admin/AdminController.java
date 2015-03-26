@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.ServletRequest;
+import javax.validation.Valid;
 import javax.validation.Validator;
 import java.security.Principal;
 import java.util.List;
@@ -56,9 +57,8 @@ public class AdminController extends AbstractController
 
     @RequiresPermissions("admin:change")
     @RequestMapping(value = "create", method = RequestMethod.POST)
-    public String create(@ModelAttribute Admin admin, @RequestParam(value = "roleId") Long roleId, RedirectAttributes redirectAttributes)
+    public String create(@Valid @ModelAttribute Admin admin, @RequestParam(value = "roleId") Long roleId, RedirectAttributes redirectAttributes)
     {
-        BeanValidators.validateWithException(validator, admin);
         admin.setRole(new Role(roleId));
         adminService.create(admin);
 
@@ -88,9 +88,8 @@ public class AdminController extends AbstractController
 
     @RequiresPermissions("admin:change")
     @RequestMapping(value = "update", method = RequestMethod.POST)
-    public String update(@ModelAttribute Admin admin, @RequestParam(value = "roleId") Long roleId, RedirectAttributes redirectAttributes)
+    public String update(@Valid @ModelAttribute Admin admin, @RequestParam(value = "roleId") Long roleId, RedirectAttributes redirectAttributes)
     {
-        BeanValidators.validateWithException(validator, admin);
         admin.setRole(new Role(roleId));
         adminService.update(admin);
 
@@ -120,10 +119,7 @@ public class AdminController extends AbstractController
     @RequestMapping(value = "selfupdate", method = RequestMethod.POST)
     public String selfupdate(@ModelAttribute Admin admin, @RequestParam(value = "roleId") Long roleId, RedirectAttributes redirectAttributes)
     {
-        if ("".equals(admin.getPassword()))
-        {
-            admin.setPassword(null); // avoid validator.
-        }
+        if ("".equals(admin.getPassword())) admin.setPassword(null); // avoid validator.
         BeanValidators.validateWithException(validator, admin);
         admin.setRole(new Role(roleId));
         adminService.update(admin);
