@@ -1,12 +1,12 @@
 package com.modoop.admin.service;
 
-import com.modoop.admin.entity.Permission;
-import com.modoop.admin.entity.Role;
 import com.modoop.admin.exception.EntityAlreadyChangedException;
 import com.modoop.admin.exception.EntityCantDeleteException;
 import com.modoop.admin.exception.EntityCantModifyException;
 import com.modoop.admin.exception.EntityNotFoundException;
-import com.modoop.admin.service.dao.RoleDao;
+import com.modoop.data.entity.Permission;
+import com.modoop.data.entity.Role;
+import com.modoop.data.repository.RoleDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;

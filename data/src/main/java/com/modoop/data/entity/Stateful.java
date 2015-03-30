@@ -1,4 +1,4 @@
-package com.modoop.admin.entity;
+package com.modoop.data.entity;
 
 /**
  * @author Genkyo Lee

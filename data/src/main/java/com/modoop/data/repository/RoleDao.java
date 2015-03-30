@@ -1,7 +1,7 @@
-package com.modoop.admin.service.dao;
+package com.modoop.data.repository;
 
-import com.modoop.admin.entity.Permission;
-import com.modoop.admin.entity.Role;
+import com.modoop.data.entity.Permission;
+import com.modoop.data.entity.Role;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

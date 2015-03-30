@@ -27,6 +27,7 @@
         <module>core</module>
         <module>admin</module>
         <module>rest</module>
+        <module>data</module>
     </modules>
 
 </project>

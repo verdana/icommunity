@@ -1,8 +1,8 @@
 package com.modoop.admin.shiro;
 
-import com.modoop.admin.entity.Admin;
-import com.modoop.admin.entity.Role;
-import com.modoop.admin.service.dao.AdminDao;
+import com.modoop.data.entity.Admin;
+import com.modoop.data.entity.Role;
+import com.modoop.data.repository.AdminDao;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -18,8 +18,6 @@ import javax.annotation.PostConstruct;
  */
 public class ShiroDbRealm extends AuthorizingRealm
 {
-    // private static final String ALGORITHM = "MD5";
-
     @Autowired
     private AdminDao adminDao;
 

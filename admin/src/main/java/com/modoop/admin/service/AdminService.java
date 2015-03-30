@@ -1,13 +1,13 @@
 package com.modoop.admin.service;
 
-import com.modoop.admin.entity.Admin;
-import com.modoop.admin.entity.Role;
 import com.modoop.admin.exception.*;
-import com.modoop.admin.service.dao.AdminDao;
-import com.modoop.admin.service.dao.RoleDao;
 import com.modoop.admin.shiro.ShiroDbRealm;
 import com.modoop.admin.shiro.ShiroUser;
 import com.modoop.core.util.StringUtils;
+import com.modoop.data.entity.Admin;
+import com.modoop.data.entity.Role;
+import com.modoop.data.repository.AdminDao;
+import com.modoop.data.repository.RoleDao;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

@@ -1,11 +1,11 @@
 package com.modoop.admin.controller.admin;
 
 import com.modoop.admin.controller.AbstractController;
-import com.modoop.admin.entity.Admin;
-import com.modoop.admin.entity.Role;
 import com.modoop.admin.service.AdminService;
 import com.modoop.core.util.ServletUtils;
 import com.modoop.core.validator.BeanValidators;
+import com.modoop.data.entity.Admin;
+import com.modoop.data.entity.Role;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

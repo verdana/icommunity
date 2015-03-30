@@ -65,6 +65,12 @@
                 <version>${modoop.version}</version>
                 <scope>compile</scope>
             </dependency>
+            <dependency>
+                <groupId>com.modoop</groupId>
+                <artifactId>modoop-data</artifactId>
+                <version>${modoop.version}</version>
+                <scope>compile</scope>
+            </dependency>
 
             <!-- Spring模块声明 -->
             <dependency>

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../inc/header.inc.jsp" %>
 
-<jsp:useBean id="admin" class="com.modoop.admin.entity.Admin" scope="request"/>
+<jsp:useBean id="admin" class="com.modoop.data.entity.Admin" scope="request"/>
 
 <div id="main-content" class="container">
 

@@ -1,4 +1,4 @@
-<%@ page import="com.modoop.admin.entity.Stateful" %>
+<%@ page import="com.modoop.data.entity.Stateful" %>
 <%@ page import="java.io.UnsupportedEncodingException" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page import="java.net.URLEncoder" %>

@@ -1,9 +1,9 @@
 package com.modoop.admin.service;
 
 import com.modoop.admin.AbstractTestcases;
-import com.modoop.admin.entity.Admin;
-import com.modoop.admin.entity.Role;
-import com.modoop.admin.service.dao.AdminDao;
+import com.modoop.data.entity.Admin;
+import com.modoop.data.entity.Role;
+import com.modoop.data.repository.AdminDao;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -33,7 +33,8 @@ public class AdminServiceTestcases extends AbstractTestcases
     @Test
     public void testDelAdmin()
     {
-        dao.delete(16L);
+        Admin admin = service.findByName("admin");
+        dao.delete(admin.getId());
         System.out.println("delete admin.");
     }
 }

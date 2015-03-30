@@ -2,10 +2,10 @@ package com.modoop.admin.controller.admin;
 
 import com.google.common.base.Joiner;
 import com.modoop.admin.controller.AbstractController;
-import com.modoop.admin.entity.Role;
 import com.modoop.admin.service.RoleService;
 import com.modoop.core.util.ServletUtils;
 import com.modoop.core.validator.BeanValidators;
+import com.modoop.data.entity.Role;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

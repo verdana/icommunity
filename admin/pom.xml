@@ -19,7 +19,7 @@
 
         <dependency>
             <groupId>com.modoop</groupId>
-            <artifactId>modoop-core</artifactId>
+            <artifactId>modoop-data</artifactId>
         </dependency>
 
         <dependency>

@@ -21,7 +21,7 @@
     <Loggers>
         <Logger name="com.modoop.admin" level="debug" additivity="true"/>
 
-        <Root level="error">
+        <Root level="debug">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="Rolling"/>
         </Root>

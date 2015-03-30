@@ -1,6 +1,6 @@
-package com.modoop.admin.service.dao;
+package com.modoop.data.repository;
 
-import com.modoop.admin.entity.Admin;
+import com.modoop.data.entity.Admin;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
