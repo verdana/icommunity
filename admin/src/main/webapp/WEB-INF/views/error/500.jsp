@@ -24,7 +24,7 @@
     </div>
 
     <p>
-        <button type="button" class="btn btn-danger" onclick="back();" >返回</button>
+        <button type="button" class="btn btn-danger" onclick="back();" >返回上页</button>
     </p>
 
 </div>
