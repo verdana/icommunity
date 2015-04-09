@@ -1,7 +1,9 @@
 package com.modoop.rest.controller;
 
 import com.google.common.base.Stopwatch;
-import com.modoop.rest.entity.Admin;
+import com.modoop.core.mapper.BeanMapper;
+import com.modoop.data.entity.Admin;
+import com.modoop.rest.entity.AdminDTO;
 import com.modoop.rest.exception.RestException;
 import com.modoop.rest.service.AdminService;
 import org.slf4j.Logger;
@@ -26,7 +28,7 @@ public class AdminRestController
     private AdminService adminService;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Admin getAdmin(@PathVariable("id") Long id)
+    public AdminDTO getAdmin(@PathVariable("id") Long id)
     {
         final Stopwatch stopwatch = Stopwatch.createStarted();
         try
@@ -38,7 +40,7 @@ public class AdminRestController
                 logger.warn(message);
                 throw new RestException(HttpStatus.NOT_FOUND, message);
             }
-            return admin;
+            return BeanMapper.map(admin, AdminDTO.class);
         }
         finally
         {

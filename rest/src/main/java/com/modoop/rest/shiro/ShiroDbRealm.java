@@ -1,8 +1,8 @@
 package com.modoop.rest.shiro;
 
-import com.modoop.rest.entity.Admin;
-import com.modoop.rest.entity.Role;
-import com.modoop.rest.service.dao.AdminDao;
+import com.modoop.data.entity.Admin;
+import com.modoop.data.entity.Role;
+import com.modoop.data.repository.AdminDao;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;

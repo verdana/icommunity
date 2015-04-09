@@ -1,21 +1,34 @@
 package com.modoop.rest.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.modoop.core.constant.Constants;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author Genkyo Lee
+ * @author Roger Lee
  */
-public class Admin extends IdEntity implements Stateful, Serializable
+@XmlType
+        (
+                namespace = Constants.NS,
+                propOrder =
+                        {
+                                "id", "name", "trueName", "phone", "mobile", "email", "state", "description", "createTime", "role"
+                        }
+        )
+@XmlRootElement(name = "admin")
+public class AdminDTO implements Serializable
 {
-    private static final long serialVersionUID = -8298838450565454455L;
+    private static final long serialVersionUID = -7882041278038133702L;
 
-    //Properties
+    private Long id;
+
     private String name;
 
     private String trueName;
-
-    private String password;
 
     private String phone;
 
@@ -27,29 +40,22 @@ public class Admin extends IdEntity implements Stateful, Serializable
 
     private String description;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss a z", timezone = "GMT+8")
     private Date createTime;
 
-    private Long version;
+    private RoleDTO role;
 
-    private Role role;
 
-    //Constructors
-    public Admin()
+    public Long getId()
     {
+        return id;
     }
 
-    public Admin(String name)
-    {
-        this.name = name;
-    }
-
-    public Admin(Long id, String name)
+    public void setId(Long id)
     {
         this.id = id;
-        this.name = name;
     }
 
-    //Methods
     public String getName()
     {
         return name;
@@ -68,16 +74,6 @@ public class Admin extends IdEntity implements Stateful, Serializable
     public void setTrueName(String trueName)
     {
         this.trueName = trueName;
-    }
-
-    public String getPassword()
-    {
-        return password;
-    }
-
-    public void setPassword(String password)
-    {
-        this.password = password;
     }
 
     public String getPhone()
@@ -140,29 +136,13 @@ public class Admin extends IdEntity implements Stateful, Serializable
         this.createTime = createTime;
     }
 
-    public Long getVersion()
-    {
-        return version;
-    }
-
-    public void setVersion(Long version)
-    {
-        this.version = version;
-    }
-
-    public Role getRole()
+    public RoleDTO getRole()
     {
         return role;
     }
 
-    public void setRole(Role role)
+    public void setRole(RoleDTO role)
     {
         this.role = role;
     }
-
-    @Override
-    public String toString()
-    {
-        return jsonMapper.toJson(this);
-    }
-} // end class
+}

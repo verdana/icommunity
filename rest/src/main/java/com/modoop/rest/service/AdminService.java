@@ -1,7 +1,7 @@
 package com.modoop.rest.service;
 
-import com.modoop.rest.entity.Admin;
-import com.modoop.rest.service.dao.AdminDao;
+import com.modoop.data.entity.Admin;
+import com.modoop.data.repository.AdminDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
