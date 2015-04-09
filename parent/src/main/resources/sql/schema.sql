@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS modoop;
 USE modoop;
 
 /*==============================================================*/
-/* Table: admin         									    */
+/* Table: admin                                                 */
 /*==============================================================*/
 CREATE TABLE admin
 (
@@ -25,7 +25,7 @@ ENGINE = InnoDB ROW_FORMAT = DEFAULT CHARSET=utf8;
 
 
 /*==============================================================*/
-/* Table: role										            */
+/* Table: role										                              */
 /*==============================================================*/
 CREATE TABLE role
 (
@@ -42,7 +42,7 @@ ENGINE = InnoDB ROW_FORMAT = DEFAULT CHARSET=utf8;
 
 
 /*==============================================================*/
-/* Table: permission								            */
+/* Table: permission								                            */
 /*==============================================================*/
 CREATE TABLE permission
 (
@@ -56,7 +56,7 @@ ENGINE = InnoDB ROW_FORMAT = DEFAULT CHARSET=utf8;
 
 
 /*==============================================================*/
-/* Table: admin_x_role										    */
+/* Table: admin_x_role										                      */
 /*==============================================================*/
 CREATE TABLE admin_x_role
 (
