@@ -11,7 +11,7 @@ public class QuickStartServer
     private static final String WEBAPP_PATH = "admin/src/main/webapp";
     private static final String CLASS_PATH = "admin/target";
     public static final int PORT = 8080;
-    public static final String CONTEXT = "/";
+    public static final String CONTEXT = "/admin";
 
     public static void main(String[] args) throws Exception
     {
