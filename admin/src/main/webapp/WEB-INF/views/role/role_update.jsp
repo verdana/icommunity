@@ -1,9 +1,9 @@
-<%@ page import="com.modoop.admin.entity.Permission" %>
+<%@ page import="com.modoop.data.entity.Permission" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../inc/header.inc.jsp" %>
 
-<jsp:useBean id="role" class="com.modoop.admin.entity.Role" scope="request"/>
+<jsp:useBean id="role" class="com.modoop.data.entity.Role" scope="request"/>
 
 <div id="main-content" class="container">
 
