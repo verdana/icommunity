@@ -38,6 +38,10 @@
         <property name="maxActive" value="${pool.maxActive}"/>
         <property name="minIdle" value="${pool.minIdle}"/>
         <property name="maxIdle" value="${pool.maxIdle}"/>
+        <property name="validationQuery" value="${pool.validationQuery}"/>
+        <property name="validationQueryTimeout" value="${pool.validationQueryTimeout}"/>
+        <property name="testWhileIdle" value="${pool.testWhileIdle}"/>
+        <property name="removeAbandoned" value="${pool.removeAbandoned}"/>
         <property name="defaultAutoCommit" value="false"/>
     </bean>
 
