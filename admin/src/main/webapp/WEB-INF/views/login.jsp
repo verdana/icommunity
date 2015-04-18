@@ -7,7 +7,12 @@
 <head>
     <meta charset="utf-8">
     <title>系统管理中心</title>
-    <meta name="viewport" content="width=1024"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Genkyo Lee"/>
+    <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
     <meta name="description" content=""/>
     <meta name="author" content="Roger Lee"/>
     <link type="image/x-icon" href="${ctx}/static/modoop/img/favicon.ico" rel="shortcut icon">
@@ -24,6 +29,15 @@
 
     <nav class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
+            <div class="navbar-header">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
         </div>
     </nav>
 
