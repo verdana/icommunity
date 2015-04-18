@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=1024"/>
     <meta name="description" content=""/>
     <meta name="author" content="Roger Lee"/>
-    <link type="image/x-icon" href="${ctx}/static/avalon/img/favicon.ico" rel="shortcut icon">
+    <link type="image/x-icon" href="${ctx}/static/modoop/img/favicon.ico" rel="shortcut icon">
     <link href="${ctx}/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="${ctx}/static/bootstrap/css/todc-bootstrap.min.css" rel="stylesheet"/>
     <link href="${ctx}/static/modoop/css/style.css" rel="stylesheet"/>
@@ -22,7 +22,7 @@
 
 <body>
 
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
         </div>
     </nav>
