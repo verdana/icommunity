@@ -55,7 +55,27 @@
                         <shiro:hasPermission name="role:read"><li><a href="${ctx}/role">角色管理</a></li></shiro:hasPermission>
                     </ul>
                 </li>
-                <li><a href="${ctx}/task">商品管理</a></li>
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">企业资源管理 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <shiro:hasPermission name="role:read"><li><a href="${ctx}/house">楼盘户型管理</a></li></shiro:hasPermission>
+                        <shiro:hasPermission name="admin:read"><li><a href="${ctx}/saler">销售人员管理</a></li></shiro:hasPermission>
+                        <shiro:hasPermission name="role:read"><li><a href="${ctx}/broker">中介人员管理</a></li></shiro:hasPermission>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">财务管理 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <shiro:hasPermission name="admin:read"><li><a href="${ctx}/contract">房产交易记录</a></li></shiro:hasPermission>
+                        <shiro:hasPermission name="admin:read"><li><a href="${ctx}/record">财务记录</a></li></shiro:hasPermission>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">用户管理 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <shiro:hasPermission name="admin:read"><li><a href="${ctx}/user">客户管理</a></li></shiro:hasPermission>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <shiro:user>

@@ -68,6 +68,29 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 /*==============================================================*/
+/* Table: staff                                                 */
+/*==============================================================*/
+CREATE TABLE staff
+(
+    id bigint AUTO_INCREMENT NOT NULL,
+    mobile varchar(20) NOT NULL,
+    true_name varchar(63) NOT NULL,
+    id_card varchar(15) NULL,
+    gender tinyint(1) DEFAULT -1 NOT NULL,
+    name varchar(63) NULL,
+    password varchar(100) NOT NULL,
+    email varchar(127) NULL,
+    phone varchar(20) NULL,
+    create_time timestamp NOT NULL,
+    version bigint NOT NULL,
+    PRIMARY KEY (id),
+    UNIQUE KEY (mobile),
+    UNIQUE KEY (true_name)
+)
+ENGINE = InnoDB ROW_FORMAT = DEFAULT CHARSET=utf8;
+
+
+/*==============================================================*/
 /* Table: user                                                  */
 /*==============================================================*/
 CREATE TABLE user

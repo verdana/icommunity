@@ -14,7 +14,7 @@
     </c:if>
 
     <div class="row content">
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-6">
             <shiro:hasPermission name="admin:change">
                 <div class="pull-left btn-group">
                     <button type="button" id="create" class="btn btn-default" onclick="redirect('${ctx}/role/create')">创建</button>
@@ -23,7 +23,7 @@
                 </div>
             </shiro:hasPermission>
         </div>
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-4 col-md-offset-4 col-xs-6">
             <form action="${ctx}/role/" method="get">
                 <div class="input-group">
                     <input class="form-control" type="text" name="search_name" placeholder="名称" value="${params.name}"/>
@@ -59,10 +59,10 @@
     </form>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-6">
             第 <b>${roles.number * roles.size + 1} - ${roles.number * roles.size + roles.numberOfElements}</b> 条，共 <b>${roles.totalElements}</b> 条
         </div>
-        <div class="col-md-4 col-md-offset-4" style="text-align: right">
+        <div class="col-md-4 col-md-offset-4 col-xs-6" style="text-align: right">
             <html:pagination name="pagination" page="${roles}" paginationSize="5" classname="pagination" style="margin: 0"/>
         </div>
     </div>
