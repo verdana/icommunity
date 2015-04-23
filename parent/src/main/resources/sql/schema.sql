@@ -68,24 +68,44 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 /*==============================================================*/
-/* Table: staff                                                 */
+/* Table: saler                                                 */
 /*==============================================================*/
-CREATE TABLE staff
+CREATE TABLE saler
 (
     id bigint AUTO_INCREMENT NOT NULL,
-    mobile varchar(20) NOT NULL,
+    mobile varchar(63) NOT NULL,
     true_name varchar(63) NOT NULL,
+    nick_name varchar(63) NULL,
     id_card varchar(15) NULL,
     gender tinyint(1) DEFAULT -1 NOT NULL,
-    name varchar(63) NULL,
     password varchar(100) NOT NULL,
     email varchar(127) NULL,
     phone varchar(20) NULL,
     create_time timestamp NOT NULL,
     version bigint NOT NULL,
     PRIMARY KEY (id),
-    UNIQUE KEY (mobile),
-    UNIQUE KEY (true_name)
+    UNIQUE KEY (mobile)
+)
+ENGINE = InnoDB ROW_FORMAT = DEFAULT CHARSET=utf8;
+
+
+/*==============================================================*/
+/* Table: broker                                                */
+/*==============================================================*/
+CREATE TABLE broker
+(
+    id bigint AUTO_INCREMENT NOT NULL,
+    mobile varchar(20) NOT NULL,
+    true_name varchar(63) NOT NULL,
+    id_card varchar(15) NULL,
+    gender tinyint(1) DEFAULT -1 NOT NULL,
+    password varchar(100) NOT NULL,
+    email varchar(127) NULL,
+    phone varchar(20) NULL,
+    create_time timestamp NOT NULL,
+    version bigint NOT NULL,
+    PRIMARY KEY (id),
+    UNIQUE KEY (mobile)
 )
 ENGINE = InnoDB ROW_FORMAT = DEFAULT CHARSET=utf8;
 
@@ -97,18 +117,19 @@ CREATE TABLE user
 (
     id bigint AUTO_INCREMENT NOT NULL,
     mobile varchar(20) NOT NULL,
-    true_name varchar(63) NOT NULL,
+    name varchar(63) NULL,
+    last_name varchar(31) NOT NULL,
+    first_name varchar(31) NULL,
+    nick_name varchar(63) NULL,
     id_card varchar(15) NULL,
     gender tinyint(1) DEFAULT -1 NOT NULL,
-    name varchar(63) NULL,
     password varchar(100) NOT NULL,
     email varchar(127) NULL,
     phone varchar(20) NULL,
     create_time timestamp NOT NULL,
     version bigint NOT NULL,
     PRIMARY KEY (id),
-    UNIQUE KEY (mobile),
-    UNIQUE KEY (true_name)
+    UNIQUE KEY (mobile)
 )
 ENGINE = InnoDB ROW_FORMAT = DEFAULT CHARSET=utf8;
 
@@ -146,7 +167,7 @@ CREATE TABLE house
     create_time timestamp NOT NULL,
     version bigint NOT NULL,
     PRIMARY KEY (id),
-    UNIQUE KEY (mobile)
+    UNIQUE KEY (name)
 )
 ENGINE = InnoDB ROW_FORMAT = DEFAULT CHARSET=utf8;
 
