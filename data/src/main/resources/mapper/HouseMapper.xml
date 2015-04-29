@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.modoop.data.repository.HouseDao">
+
+
+    <!-- 定义全局查询的SQL变量语句 -->
+    <sql id="searchCondition">
+        <where>
+            <if test="name != null">name like '%${name}%'</if>
+        </where>
+    </sql>
+
+    <select id="search" parameterType="map" resultMap="houseMap">
+        SELECT
+        id, name, type, area, price, total_price, discount, description, create_time
+        FROM  house
+        <include refid="searchCondition"/>
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+    <select id="count" parameterType="map" resultType="long">
+        SELECT count(1)
+        FROM house
+        <include refid="searchCondition"/>
+    </select>
+
+    <select id="find" parameterType="long" resultMap="houseMap">
+        SELECT
+        id, name, type, area, price, total_price, discount, description, create_time
+        FROM  house
+        WHERE id = #{id}
+    </select>
+
+    <select id="findByName" parameterType="string" resultMap="houseMap">
+        SELECT
+        id, name, type, area, price, total_price, discount, description, create_time
+        FROM  house
+        WHERE name = #{name}
+    </select>
+
+    <insert id="create" parameterType="house" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO house
+        (name, type, area, price, total_price, discount, description, create_time, version) VALUE (#{name}, #{type}, #{area}, #{price}, #{totalPrice},
+        #{discount}, #{description}, #{createTime}, 0);
+    </insert>
+
+    <update id="update" parameterType="house">
+        UPDATE house
+        <trim prefix="set">
+            <if test="name != null">name = #{name}, </if>
+            <if test="type != null">type = #{type}, </if>
+            <if test="area != null">area = #{area}, </if>
+            <if test="price != null">price = #{price}, </if>
+            <if test="totalPrice != null">total_price = #{totalPrice}, </if>
+            <if test="discount != null">discount = #{discount}, </if>
+            <if test="description != null">description = #{description}, </if>
+        </trim>
+        version = version + 1 WHERE id = #{id} AND version = #{version};
+    </update>
+
+
+
+    <delete id="delete" parameterType="long">
+        DELETE FROM house WHERE id = #{id}
+    </delete>
+
+
+    <!-- 结果集mapper -->
+    <resultMap id="houseMap" type="house">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="type" column="type"/>
+        <result property="area" column="area"/>
+        <result property="price" column="price"/>
+        <result property="totalPrice" column="total_price"/>
+        <result property="discount" column="discount"/>
+        <result property="description" column="description"/>
+        <result property="createTime" column="create_time"/>
+        <result property="version" column="version"/>
+    </resultMap>
+
+</mapper> 
