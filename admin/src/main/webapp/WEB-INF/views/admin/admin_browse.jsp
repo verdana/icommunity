@@ -64,7 +64,7 @@
 
     <div class="row">
         <div class="col-xs-6 col-md-4">
-            第 <b>${admins.number * admins.size + 1} - ${admins.number * admins.size + admins.numberOfElements}</b> 条，共 <b>${admins.totalElements}</b> 条
+            第 <b>${admins.totalElements != 0 ? admins.number * admins.size + 1 : 0} - ${admins.number * admins.size + admins.numberOfElements}</b> 条，共 <b>${admins.totalElements}</b> 条
         </div>
         <div class="col-xs-6 col-md-4 col-md-offset-4" style="text-align: right">
             <html:pagination name="pagination" page="${admins}" paginationSize="5" classname="pagination" style="margin: 0"/>

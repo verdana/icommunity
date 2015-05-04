@@ -17,7 +17,6 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -69,7 +68,7 @@ public class AdminService extends AbstractService
         if (temp != null) throw new EntityAlreadyExistException(Admin.KEY, admin.getName());
         if (admin.getState() == null) admin.setState(4);
         admin.setPassword(BCrypt.hashpw(admin.getPassword(), BCrypt.gensalt()));
-        admin.setCreateTime(new Date());
+//        admin.setCreateTime(new Date());
         adminDao.create(admin);
     }
 

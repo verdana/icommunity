@@ -125,14 +125,15 @@ CREATE TABLE user
     id bigint AUTO_INCREMENT NOT NULL,
     mobile varchar(20) NOT NULL,
     name varchar(63) NULL,
-    last_name varchar(31) NOT NULL,
-    first_name varchar(31) NULL,
+    true_name varchar(63) NOT NULL,
     nick_name varchar(63) NULL,
     id_card varchar(15) NULL,
-    gender tinyint(1) DEFAULT -1 NOT NULL,
-    password varchar(100) NOT NULL,
+    gender tinyint(1) NOT NULL DEFAULT -1,
+    age int NULL,
+    password varchar(100) NULL,
     email varchar(127) NULL,
     phone varchar(20) NULL,
+    description varchar(255) DEFAULT NULL,
     create_time timestamp NOT NULL,
     version bigint NOT NULL,
     PRIMARY KEY (id),
@@ -177,6 +178,24 @@ CREATE TABLE house
     version bigint NOT NULL,
     PRIMARY KEY (id),
     UNIQUE KEY (name)
+)
+ENGINE = InnoDB ROW_FORMAT = DEFAULT CHARSET=utf8;
+
+
+/*==============================================================*/
+/* Table: contract                                              */
+/*==============================================================*/
+CREATE TABLE contract
+(
+    id bigint AUTO_INCREMENT NOT NULL,
+    number varchar(63) NOT NULL,
+    price decimal(11,2) NULL,
+    contract_time timestamp NOT NULL,
+    description varchar(255) DEFAULT NULL,
+    create_time timestamp NOT NULL,
+    version bigint NOT NULL,
+    PRIMARY KEY (id),
+    UNIQUE KEY (number)
 )
 ENGINE = InnoDB ROW_FORMAT = DEFAULT CHARSET=utf8;
 

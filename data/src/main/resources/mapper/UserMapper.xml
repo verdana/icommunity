@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.modoop.data.repository.UserDao">
+
+    <!-- 定义全局查询的SQL变量语句 -->
+    <sql id="searchCondition">
+        <where>
+            <if test="trueName != null">true_name like '%${trueName}%'</if>
+        </where>
+    </sql>
+
+    <select id="search" parameterType="map" resultMap="userMap">
+        SELECT
+        id,mobile,name,true_name,nick_name,id_card,gender,age,password,email,phone,description,create_time
+        FROM user
+        <include refid="searchCondition"/>
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+    <select id="count" parameterType="map" resultType="long">
+        SELECT count(1)
+        FROM user
+        <include refid="searchCondition"/>
+    </select>
+
+    <select id="find" parameterType="long" resultMap="userMap">
+        SELECT u.id,u.mobile,u.name,u.true_name,u.nick_name,u.id_card,u.gender,u.age,u.password,u.email,u.phone,u.description,u.create_time,u.version
+        FROM user u
+        WHERE u.id = #{id}
+    </select>
+
+    <insert id="create" parameterType="com.modoop.data.entity.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user (mobile,name,true_name,nick_name,id_card,gender,age,password,email,phone,description,create_time,version)
+        VALUE (#{mobile},#{name},#{trueName},#{nickName},#{idCard},#{gender},#{age},#{password},#{email},#{phone},#{description},#{createTime},0)
+    </insert>
+
+    <update id="update" parameterType="com.modoop.data.entity.User">
+        UPDATE user
+        <trim prefix="set">
+            <if test="mobile != null">mobile = #{mobile}, </if>
+            <if test="name != null">name = #{name}, </if>
+            <if test="trueName != null">true_name = #{trueName}, </if>
+            <if test="nickName != null">nick_name = #{nickName}, </if>
+            <if test="idCard != null">id_card = #{idCard}, </if>
+            <if test="gender != null">gender = #{gender}, </if>
+            <if test="age != null">age = #{age}, </if>
+            <if test="password != null">password = #{password}, </if>
+            <if test="phone != null">phone = #{phone}, </if>
+            <if test="email != null">email = #{email}, </if>
+            <if test="description != null">description = #{description}, </if>
+        </trim>
+        version = version + 1 WHERE id = #{id} AND version = #{version}
+    </update>
+
+    <delete id="delete" parameterType="long">
+        DELETE FROM user WHERE id = #{id}
+    </delete>
+
+    <!-- 结果集mapper -->
+    <resultMap id="userMap" type="com.modoop.data.entity.User">
+        <result property="id" column="id"/>
+        <result property="mobile" column="mobile"/>
+        <result property="name" column="name"/>
+        <result property="trueName" column="true_name"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="idCard" column="id_card"/>
+        <result property="gender" column="gender"/>
+        <result property="age" column="age"/>
+        <result property="password" column="password"/>
+        <result property="email" column="email"/>
+        <result property="phone" column="phone"/>
+        <result property="description" column="description"/>
+        <result property="createTime" column="create_time"/>
+        <result property="version" column="version"/>
+    </resultMap>
+
+</mapper> 
