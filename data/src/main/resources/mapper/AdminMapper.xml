@@ -48,10 +48,6 @@
         INSERT INTO admin_x_role (admin_id, role_id) VALUES (@admin_id, #{role.id})
     </insert>
 
-    <insert id="createAdminXRole" parameterType="admin">
-        INSERT INTO admin_x_role (admin_id, role_id) VALUES (#{id}, #{role.id})
-    </insert>
-
     <update id="update" parameterType="admin">
         UPDATE admin
         <trim prefix="set">
@@ -66,11 +62,6 @@
         version = version + 1 WHERE id = #{id} AND version = #{version};
         UPDATE admin_x_role SET admin_id = #{id}, role_id = #{role.id} WHERE admin_id = #{id}
     </update>
-
-    <update id="updateAdminXRole" parameterType="admin">
-        UPDATE admin_x_role SET admin_id = #{id}, role_id = #{role.id} WHERE admin_id = #{id}
-    </update>
-
 
     <delete id="delete" parameterType="long">
         DELETE FROM admin_x_role WHERE admin_id = #{id};

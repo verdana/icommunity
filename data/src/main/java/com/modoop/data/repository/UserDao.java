@@ -1,6 +1,6 @@
 package com.modoop.data.repository;
 
-import com.modoop.data.entity.Admin;
+import com.modoop.data.entity.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,19 +10,17 @@ import java.util.Map;
  * @author Roger Lee
  */
 @Repository
-public interface AdminDao
+public interface UserDao
 {
-    List<Admin> search(Map<String, Object> parameters);
+    List<User> search(Map<String, Object> parameters);
 
     long count(Map<String, Object> parameters);
 
-    Admin find(Long id);
+    User find(Long id);
 
-    Admin findByName(String name);
+    void create(User user);
 
-    void create(Admin admin);
-
-    int update(Admin admin);
+    int update(User user);
 
     void delete(Long id);
 }

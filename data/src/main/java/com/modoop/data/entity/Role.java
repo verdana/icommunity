@@ -6,7 +6,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.NotBlank;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -27,9 +26,6 @@ public class Role extends IdEntity implements Serializable
 
     private String description;
 
-    private Date createTime;
-
-    private Long version;
 
     //Constructors
     public Role()
@@ -81,26 +77,6 @@ public class Role extends IdEntity implements Serializable
     public void setDescription(String description)
     {
         this.description = description;
-    }
-
-    public Date getCreateTime()
-    {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime)
-    {
-        this.createTime = createTime;
-    }
-
-    public Long getVersion()
-    {
-        return version;
-    }
-
-    public void setVersion(Long version)
-    {
-        this.version = version;
     }
 
     @JsonIgnore

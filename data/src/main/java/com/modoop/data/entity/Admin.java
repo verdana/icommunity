@@ -6,7 +6,6 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @author Genkyo Lee
@@ -37,10 +36,6 @@ public class Admin extends IdEntity implements Stateful, Serializable
     private Integer state;
 
     private String description;
-
-    private Date createTime;
-
-    private Long version;
 
     private Role role;
 
@@ -139,26 +134,6 @@ public class Admin extends IdEntity implements Stateful, Serializable
     public void setDescription(String description)
     {
         this.description = description;
-    }
-
-    public Date getCreateTime()
-    {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime)
-    {
-        this.createTime = createTime;
-    }
-
-    public Long getVersion()
-    {
-        return version;
-    }
-
-    public void setVersion(Long version)
-    {
-        this.version = version;
     }
 
     public Role getRole()

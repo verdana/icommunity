@@ -11,7 +11,7 @@
         <li class="active">详细信息</li>
     </ol>
 
-    <form id="form" action="${ctx}/user/update" method="post" class="form-horizontal content" role="form">
+    <form id="form" action="${ctx}/admin/update" method="post" class="form-horizontal content" role="form">
         <input type="hidden" name="id" value="${admin.id}"/>
 
         <div class="form-group">
