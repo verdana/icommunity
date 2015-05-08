@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Date;
  */
 public class House extends IdEntity implements Serializable
 {
-   public static final String KEY = "小区";
+   public static final String KEY = "户型";
     //Properties
     @NotBlank(message = "名称不能为空。")
     private String name;
@@ -22,7 +23,8 @@ public class House extends IdEntity implements Serializable
 
     private double price=0;
 
-    private double totalPrice=0;
+
+    private BigDecimal totalPrice = new BigDecimal(0) ;
 
     private float discount=0;
 
@@ -35,6 +37,15 @@ public class House extends IdEntity implements Serializable
     //Constructors
     public House()
     {
+    }
+
+
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public House(String name)
@@ -89,13 +100,6 @@ public class House extends IdEntity implements Serializable
     }
 
 
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
 
     public String getDescription() {
         return description;

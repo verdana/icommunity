@@ -27,14 +27,14 @@
 
     <select id="find" parameterType="long" resultMap="houseMap">
         SELECT
-        id, name, type, area, price, total_price, discount, description, create_time
+        id, name, type, area, price, total_price, discount, description, create_time, version
         FROM  house
         WHERE id = #{id}
     </select>
 
     <select id="findByName" parameterType="string" resultMap="houseMap">
         SELECT
-        id, name, type, area, price, total_price, discount, description, create_time
+        id, name, type, area, price, total_price, discount, description, create_time, version
         FROM  house
         WHERE name = #{name}
     </select>
