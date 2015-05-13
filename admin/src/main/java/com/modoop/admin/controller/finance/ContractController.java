@@ -1,7 +1,7 @@
-package com.modoop.admin.controller.user;
+package com.modoop.admin.controller.finance;
 
 import com.modoop.admin.controller.AbstractController;
-import com.modoop.admin.service.UserService;
+import com.modoop.admin.service.ContractService;
 import com.modoop.core.util.ServletUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,33 +16,33 @@ import javax.servlet.ServletRequest;
 import java.util.Map;
 
 /**
- * @author Genkyo Lee
+ * @author Roger Lee
  */
 @Controller
-@RequestMapping(value = "/user")
-public class UserController extends AbstractController
+@RequestMapping(value = "/contract")
+public class ContractController extends AbstractController
 {
     @Autowired
-    private UserService userService;
+    private ContractService service;
 
     /**
-     * 用户浏览
+     * 交易记录浏览
      */
-    @RequiresPermissions("user:read")
+    @RequiresPermissions("contract:read")
     @RequestMapping(value = {"", "browse"}, method = RequestMethod.GET)
     public String browse(@RequestParam(value = "page", defaultValue = "1") int pageNumber, @RequestParam(value = "page.size", defaultValue = PAGE_SIZE) int pageSize, Model model, ServletRequest request)
     {
         Map<String, Object> parameters = ServletUtils.getParametersStartingWith(request, "search_");
         model.addAttribute("params", parameters);
-        model.addAttribute("users", userService.search(parameters, pageNumber, pageSize));
-        return "user/user_browse";
+        model.addAttribute("contracts", service.search(parameters, pageNumber, pageSize));
+        return "contract/contract_browse";
     }
 
-    @RequiresPermissions("user:read")
+    @RequiresPermissions("contract:read")
     @RequestMapping(value = "detail/{id}", method = RequestMethod.GET)
     public String detail(@PathVariable("id") Long id, Model model)
     {
-        model.addAttribute("user", userService.find(id));
-        return "user/user_detail";
+        model.addAttribute("contract", service.find(id));
+        return "contract/contract_detail";
     }
 }

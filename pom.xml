@@ -28,6 +28,7 @@
         <module>admin</module>
         <module>rest</module>
         <module>data</module>
+        <module>wechat</module>
     </modules>
 
 </project>

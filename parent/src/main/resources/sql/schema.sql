@@ -185,6 +185,7 @@ ENGINE = InnoDB ROW_FORMAT = DEFAULT CHARSET=utf8;
 /*==============================================================*/
 /* Table: contract                                              */
 /*==============================================================*/
+DROP TABLE IF EXISTS `contract`;
 CREATE TABLE contract
 (
     id bigint AUTO_INCREMENT NOT NULL,
@@ -200,6 +201,56 @@ CREATE TABLE contract
 ENGINE = InnoDB ROW_FORMAT = DEFAULT CHARSET=utf8;
 
 
+/*==============================================================*/
+/* Table: contract_x_user									                      */
+/*==============================================================*/
+DROP TABLE IF EXISTS `contract_x_user`;
+CREATE TABLE contract_x_user
+(
+    contract_id bigint NOT NULL,
+    user_id bigint NOT NULL,
+    PRIMARY KEY (contract_id,user_id)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+/*==============================================================*/
+/* Table: contract_x_saler								                      */
+/*==============================================================*/
+DROP TABLE IF EXISTS `contract_x_saler`;
+CREATE TABLE contract_x_saler
+(
+    contract_id bigint NOT NULL,
+    saler_id bigint NOT NULL,
+    PRIMARY KEY (contract_id,saler_id)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+/*==============================================================*/
+/* Table: contract_x_broker								                      */
+/*==============================================================*/
+DROP TABLE IF EXISTS `contract_x_broker`;
+CREATE TABLE contract_x_broker
+(
+    contract_id bigint NOT NULL,
+    broker_id bigint NOT NULL,
+    PRIMARY KEY (contract_id,broker_id)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 ALTER TABLE admin_x_role ADD CONSTRAINT fk_admin_id FOREIGN KEY (admin_id) REFERENCES admin (id) ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE admin_x_role ADD CONSTRAINT fk_role_id FOREIGN KEY (role_id) REFERENCES role (id) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE contract_x_user ADD CONSTRAINT fk_contract_user_id FOREIGN KEY (contract_id) REFERENCES contract (id) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE contract_x_user ADD CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE contract_x_saler ADD CONSTRAINT fk_contract_saler_id FOREIGN KEY (contract_id) REFERENCES contract (id) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE contract_x_saler ADD CONSTRAINT fk_saler_id FOREIGN KEY (saler_id) REFERENCES saler (id) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE contract_x_broker ADD CONSTRAINT fk_contract_broker_id FOREIGN KEY (contract_id) REFERENCES contract (id) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE contract_x_broker ADD CONSTRAINT fk_broker_id FOREIGN KEY (broker_id) REFERENCES broker (id) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+
 

@@ -1,0 +1,23 @@
+<ehcache updateCheck="false" name="shiroCache">
+
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="false"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+            />
+
+    <cache name="com.modoop.wechat.shiro.ShiroDbRealm.authenticationCache"
+           timeToLiveSeconds="0"
+           timeToIdleSeconds="1200"
+           maxElementsInMemory="1000"/>
+
+    <cache name="com.modoop.wechat.shiro.ShiroDbRealm.authorizationCache"
+           timeToLiveSeconds="0"
+           timeToIdleSeconds="1200"
+           maxElementsInMemory="1000"/>
+
+</ehcache>
