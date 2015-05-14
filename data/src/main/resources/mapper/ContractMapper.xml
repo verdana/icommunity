@@ -6,7 +6,7 @@
     <!-- 定义全局查询的SQL变量语句 -->
     <sql id="searchCondition">
         <where>
-            <if test="number != null">name like '%${number}%'</if>
+            <if test="number != null">number like '%${number}%'</if>
         </where>
     </sql>
 
